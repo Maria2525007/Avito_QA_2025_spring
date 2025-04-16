@@ -1,0 +1,1 @@
+# Avito_QA_2025_spring
