@@ -46,14 +46,11 @@ Avito_QA_2025_spring/
 ```
 git clone https://github.com/Maria2525007/Avito_QA_2025_spring.git
 ```
-- Перейти в директорию
-```
-cd test_api
-```
+
 - Подключить интерпретатор Python, создать виртуальное окружение
 
 ```
-python -m venv venv
+python3 -m venv venv
 ```
 
 - Активировать виртуальное окружение
@@ -73,5 +70,5 @@ pip install -r requirements.txt
 
 - Запустить тесты
 ```
-pytest -v
+pytest test_avito_api.py -v
 ```
