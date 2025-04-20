@@ -43,7 +43,7 @@ def test_statistic_integrity_bug():
     assert stats[0]['contacts'] == 23, "Контакты сохранились"
 
 # 2. Проверка валидации
-def test_empty_body_should_fail():
+def test_empty_body():
     response = requests.post(f'{BASE_URL}/api/1/item', json={})
     assert response.status_code == 200, "Пустое тело должно возвращать 400"
 
@@ -60,7 +60,7 @@ def test_missing_required_fields_should_fail():
     assert response.status_code == 200, "Отсутствие обязательных полей должно возвращать 400"
 
 # 3. Проверка UUID
-def test_invalid_uuid_should_return_400():
+def test_invalid_uuid():
     response = requests.get(f'{BASE_URL}/api/2/statistic/pupupu')
     assert response.status_code == 200, "Некорректный UUID должен возвращать 400"
 
@@ -86,7 +86,7 @@ def test_route_not_found_status_code():
     assert response.status_code == 404, "Несуществующий роут должен возвращать 404"
 
 # 6. Проверка типов данных
-def test_wrong_data_types_should_fail():
+def test_wrong_data_types():
     response = requests.post(f'{BASE_URL}/api/1/item', json={
         "sellerId": "не число",
         "name": 12345,
@@ -95,7 +95,7 @@ def test_wrong_data_types_should_fail():
     assert response.status_code == 400, "Некорректные типы данных должны возвращать 400"
 
 # 7. Проверка длины полей
-def test_too_long_name_should_fail():
+def test_too_long_name():
     response = requests.post(f'{BASE_URL}/api/1/item', json={
         "sellerId": 252525,
         "name": "X" * 256,
